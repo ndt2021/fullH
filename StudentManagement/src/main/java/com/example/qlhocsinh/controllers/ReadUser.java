@@ -22,7 +22,6 @@ public class ReadUser {
     public String searchUser(@RequestParam("email") String email, Model model) {
         String name = userService.getUserNameByEmail(email);
         String password = userService.getUserPassByEmail(email);
-
         model.addAttribute("name", name);
         model.addAttribute("password", password);
         return "userpage";

@@ -1,111 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Title</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="user.css" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
+    <h1>User Information</h1>
 
-    <section class="vh-100 main">
-        <div class="container h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-xl-9">
-      
-              <h1 class="text-white mb-4">User</h1>
-      
-              <div class="card" style="border-radius: 15px;">
-                <div class="card-body">
-      
-                  <div class="row align-items-center pt-4 pb-3">
-                    <div class="col-md-3 ps-5">
-      
-                      <h6 class="mb-0">Name</h6>
-      
-                    </div>
-                    <div class="col-md-9 pe-5">
-      
-                      <input type="text" class="form-control form-control-lg" name="name" />
-      
-                    </div>
-                  </div>
-      
-                  <hr class="mx-n3">
-      
-                  <div class="row align-items-center py-3">
-                    <div class="col-md-3 ps-5">
-      
-                      <h6 class="mb-0">Email</h6>
-      
-                    </div>
-                    <div class="col-md-9 pe-5">
-      
-                      <input type="email" class="form-control form-control-lg" placeholder="example@example.com" name="email" />
-      
-                    </div>
-                  </div>
-      
-                  <hr class="mx-n3">
-      
-                  <div class="row align-items-center py-3">
-                    <div class="col-md-3 ps-5">
-      
-                      <h6 class="mb-0">Password</h6>
-      
-                    </div>
-                    <div class="col-md-9 pe-5">
-      
-                      <textarea class="form-control" rows="3" placeholder="Password" name="password"></textarea>
-      
-                    </div>
-                  </div>
-      
-                  <hr class="mx-n3">
-      
-                  <div class="row align-items-center py-3">
-                    <div class="col-md-3 ps-5">
-      
-                      <h6 class="mb-0">Class ID</h6>
-      
-                    </div>
-                    <div class="col-md-9 pe-5">
-      
-                        <textarea class="form-control" rows="3" placeholder="Class ID" name="Class ID"></textarea>
-      
-                    </div>
-                  </div>
-      
-                  <hr class="mx-n3">
-      
-                  <div class="px-5 py-4">
-                    <button type="submit" class="btn btn-primary btn-lg">Submit form</button>
+    <form action ="/auth/register"  method="post" th:object="${userdata}">
+      <label for="name">Name:</label>
+      <input th:field="*{name}" type="text" id="name" name="name" required />
 
-                  </div>
+      <label for="email">Email:</label>
+      <input th:field="*{email}" type="text" id="email" name="email" required />
 
-                  <div class="px-5 py-4">
-                    <h2 style="color: red;" th:if="${error}" th:text="${error}" >TH:  </h2>
-                  </div>
-      
-                  
-                </div>
-              </div>
-      
-            </div>
-          </div>
-        </div>
-      </section>
+      <label for="password">Password:</label>
+      <input
+        th:field="*{password}"
+        type="text"
+        id="password"
+        name="password"
+        required
+      />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="px-5 py-4">
+      <h2 style="color: red" th:if="${error}" th:text="${error}">TH:</h2>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
