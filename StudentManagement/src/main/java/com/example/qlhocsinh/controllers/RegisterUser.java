@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @AllArgsConstructor
-public class registerUser {
+public class RegisterUser {
     @Autowired
     private UserService userService;
     @ModelAttribute("userdto")
@@ -33,7 +33,7 @@ public class registerUser {
         if(userDto.getPassword().equals(userDto.getConfirmPass()) == false){
             return "redirect:/register?checkpass";
         }
-        userService.save(userDto);
+        userService.create(userDto);
         return "redirect:/register?success";
     }
 }

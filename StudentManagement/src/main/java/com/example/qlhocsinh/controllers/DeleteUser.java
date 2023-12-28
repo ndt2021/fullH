@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class deleteUser {
+public class DeleteUser {
     @Autowired
     private UserService userService;
 
-    @GetMapping("deleteuser")
+    @GetMapping("/deleteuser")
     public String showFormDelete(){
         return "deletepage";
     }
 
-    @DeleteMapping("deleteuser")
+    @DeleteMapping("/deleteuser")
     public String deleteUser(@RequestParam("email") String email) {
         // Gọi phương thức xóa người dùng từ service
         userService.deleteUserByEmail(email);
         // Redirect hoặc chuyển hướng sau khi xử lý thành công
-        return "fix";
+        return "deletepage";
     }
 
 }

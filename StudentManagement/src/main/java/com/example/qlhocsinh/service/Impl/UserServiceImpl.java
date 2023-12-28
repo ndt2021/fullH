@@ -12,11 +12,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
     @Override
-    public void save(UserDto userDto) {
+    public void create(UserDto userDto) {
         User user = new User();
         user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
-        user.setPassword(userDto.getPassword());
+        user.setPassword( userDto.getPassword());
         userRepository.save(user);
     }
 
@@ -58,4 +58,5 @@ public class UserServiceImpl implements UserService {
         if(user == null) return false;
         return true;
     }
+    
 }
