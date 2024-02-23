@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class RegisterUser {
     @Autowired
     private UserService userService;
-    @ModelAttribute("userdto")
+    @ModelAttribute("userdata")
     public UserDto userRegistationDto(){
         return new UserDto();
     }
